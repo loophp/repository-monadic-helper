@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.13.1@5cf660f63b548ccd4a56f62d916ee4d6028e01a3">
+  <file src="src/Doctrine/MonadicStandardRepository.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$this-&gt;objectRepository-&gt;getClassName()</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>string</code>
+    </MoreSpecificReturnType>
+  </file>
+  <file src="src/MonadicStandardRepositoryFactory.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$objectRepository-&gt;getClassName()</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>class-string&lt;R&gt;</code>
+    </MoreSpecificReturnType>
+  </file>
+  <file src="src/Service/MonadicServiceRepositoryHelper.php">
+    <InvalidArgument occurrences="6">
+      <code>$entities</code>
+      <code>$entities</code>
+    </InvalidArgument>
+  </file>
+</files>
