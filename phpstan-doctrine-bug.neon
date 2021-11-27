@@ -1,0 +1,12 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method loophp\\\\RepositoryMonadicHelper\\\\Doctrine\\\\MonadicRepository\\:\\:getClassName\\(\\) should return class\\-string\\<R\\> but returns string\\.$#"
+			count: 1
+			path: src/Doctrine/MonadicRepository.php
+
+		-
+			message: "#^Method loophp\\\\RepositoryMonadicHelper\\\\MonadicRepositoryFactory\\:\\:getEntityClass\\(\\) should return class\\-string\\<R\\> but returns string\\.$#"
+			count: 1
+			path: src/MonadicRepositoryFactory.php
+
