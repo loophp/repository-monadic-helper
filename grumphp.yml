@@ -1,12 +1,5 @@
-imports:
-    - { resource: vendor/drupol/php-conventions/config/php73/grumphp.yml }
-
-parameters:
-    # GrumPHP License
-    tasks.license.holder: Pol Dellaiera
-    tasks.license.date_from: 2021
-
-    tasks.phpcsfixer.config: .php-cs-fixer.dist.php
-
-    tasks.phpstan.blocking: true
-    tasks.psalm.blocking: true
+grumphp:
+    tasks:
+        phpstan:
+            level: max
+        psalm: ~

@@ -14,8 +14,10 @@
     "require-dev": {
         "doctrine/doctrine-bundle": "^2.5",
         "doctrine/orm": "^2.10",
-        "drupol/php-conventions": "^5",
-        "phpunit/phpunit": "^9.5"
+        "phpro/grumphp": "^1",
+        "phpunit/phpunit": "^9.5",
+        "vimeo/psalm": "4.12.0",
+        "phpstan/phpstan": "^1"
     },
     "autoload": {
         "psr-4": {
