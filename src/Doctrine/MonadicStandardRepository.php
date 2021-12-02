@@ -11,8 +11,7 @@ namespace loophp\RepositoryMonadicHelper\Doctrine;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
-use loophp\RepositoryMonadicHelper\Service\MonadicServiceRepositoryHelper;
-use loophp\RepositoryMonadicHelper\Service\MonadicServiceRepositoryHelperInterface;
+use loophp\RepositoryMonadicHelper\Exception\MonadicRepositoryException;
 use Marcosh\LamPHPda\Either;
 
 /**
@@ -23,11 +22,6 @@ use Marcosh\LamPHPda\Either;
  */
 final class MonadicStandardRepository implements MonadicStandardRepositoryInterface
 {
-    /**
-     * @var MonadicServiceRepositoryHelperInterface<L, R>
-     */
-    private MonadicServiceRepositoryHelperInterface $monadicServiceRepositoryHelper;
-
     /**
      * @var ObjectRepository<R>
      */
@@ -41,26 +35,29 @@ final class MonadicStandardRepository implements MonadicStandardRepositoryInterf
         string $entityClass
     ) {
         $this->objectRepository = $entityManager->getRepository($entityClass);
-        $this->monadicServiceRepositoryHelper = new MonadicServiceRepositoryHelper();
     }
 
     public function find($id): Either
     {
-        return $this
-            ->monadicServiceRepositoryHelper
-            ->eitherFind(
-                $this->objectRepository,
-                $id
-            );
+        return (null === $entity = $this->objectRepository->find($id))
+            ? Either::left(
+                MonadicRepositoryException::entityNotFoundWithSuchId(
+                    $this->objectRepository->getClassName(),
+                    (string) $id
+                )
+            )
+            : Either::right($entity);
     }
 
     public function findAll(): Either
     {
-        return $this
-            ->monadicServiceRepositoryHelper
-            ->eitherFindAll(
-                $this->objectRepository,
-            );
+        return ([] === $entities = $this->objectRepository->findAll())
+            ? Either::left(
+                MonadicRepositoryException::entityNotFound(
+                    $this->objectRepository->getClassName()
+                )
+            )
+            : Either::right($entities);
     }
 
     public function findBy(
@@ -69,26 +66,27 @@ final class MonadicStandardRepository implements MonadicStandardRepositoryInterf
         ?int $limit = null,
         ?int $offset = null
     ): Either {
-        return $this
-            ->monadicServiceRepositoryHelper
-            ->eitherFindBy(
-                $this->objectRepository,
-                $criteria,
-                $orderBy,
-                $limit,
-                $offset
-            );
+        return ([] === $entities = $this->objectRepository->findBy($criteria, $orderBy, $limit, $offset))
+            ? Either::left(
+                MonadicRepositoryException::entityNotFoundWithSuchCriteria(
+                    $this->objectRepository->getClassName(),
+                    $criteria
+                )
+            )
+            : Either::right($entities);
     }
 
     public function findOneBy(
         array $criteria
     ): Either {
-        return $this
-            ->monadicServiceRepositoryHelper
-            ->eitherFindOneBy(
-                $this->objectRepository,
-                $criteria
-            );
+        return (null === $entity = $this->objectRepository->findOneBy($criteria))
+            ? Either::left(
+                MonadicRepositoryException::entityNotFoundWithSuchCriteria(
+                    $this->objectRepository->getClassName(),
+                    $criteria
+                )
+            )
+            : Either::right($entity);
     }
 
     public function getClassName(): string
