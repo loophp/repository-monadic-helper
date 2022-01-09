@@ -249,15 +249,15 @@ final class MonadicRepositoryHelperTest extends TestCase
             ->eitherFind($repository->reveal(), 3)
             ->bind(
                 static function (CustomEntity $customEntity): Either {
-                return ('' === $customEntity->getTitle())
+                    return ('' === $customEntity->getTitle())
                     ? Either::left(new Exception('Empty title'))
                     : Either::right($customEntity);
-            }
+                }
             )
             ->map(
                 static function (CustomEntity $customEntity): string {
-                return sprintf('%s%s', $customEntity->getTitle(), $customEntity->getTitle());
-            }
+                    return sprintf('%s%s', $customEntity->getTitle(), $customEntity->getTitle());
+                }
             )
             ->eval(
                 static fn (Throwable $i): string => $i->getMessage(),

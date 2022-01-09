@@ -30,20 +30,6 @@ final class MonadicRepositoryFactory implements MonadicRepositoryFactoryInterfac
 
     public function fromRepository(ObjectRepository $objectRepository): MonadicRepositoryInterface
     {
-        return $this->fromEntity($this->getEntityClass($objectRepository));
-    }
-
-    /**
-     * @template R
-     *
-     * @param ObjectRepository<R> $objectRepository
-     *
-     * @return class-string<R>
-     *
-     * @see https://github.com/doctrine/persistence/pull/213
-     */
-    private function getEntityClass(ObjectRepository $objectRepository): string
-    {
-        return $objectRepository->getClassName();
+        return $this->fromEntity($objectRepository->getClassName());
     }
 }

@@ -1,2 +1,0 @@
-includes:
-    - phpstan-doctrine-bug.neon
