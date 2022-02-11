@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": ">= 7.4",
-        "marcosh/lamphpda": "dev-master",
+        "marcosh/lamphpda": "^1",
         "roave/you-are-using-it-wrong": "^1"
     },
     "require-dev": {
