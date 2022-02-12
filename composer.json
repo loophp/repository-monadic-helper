@@ -1,12 +1,18 @@
 {
     "name": "loophp/repository-monadic-helper",
-    "type": "library",
     "description": "Monadic Doctrine repositories helper classes and services.",
+    "license": "MIT",
+    "type": "library",
     "keywords": [
         "doctrine",
         "monad"
     ],
-    "license": "MIT",
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/drupol"
+        }
+    ],
     "require": {
         "php": ">= 7.4",
         "marcosh/lamphpda": "^1",
@@ -30,15 +36,17 @@
             "tests\\unit\\loophp\\RepositoryMonadicHelper\\App\\": "tests/unit/"
         }
     },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "phpstan/extension-installer": true,
+            "phpro/grumphp": true,
+            "roave/you-are-using-it-wrong": true
+        }
+    },
     "scripts": {
         "changelog-unreleased": "docker-compose run auto_changelog -c .auto-changelog -u",
         "changelog-version": "docker-compose run auto_changelog -c .auto-changelog -v",
         "grumphp": "./vendor/bin/grumphp run"
-    },
-    "funding": [
-        {
-            "type": "github",
-            "url": "https://github.com/drupol"
-        }
-    ]
+    }
 }
