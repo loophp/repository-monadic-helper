@@ -17,7 +17,7 @@ use Marcosh\LamPHPda\Either;
 use Throwable;
 
 /**
- * @template R
+ * @template R of object
  *
  * @implements MonadicRepositoryInterface<Throwable, R>
  */
@@ -41,7 +41,11 @@ final class MonadicRepository implements MonadicRepositoryInterface
         string $entityClass
     ) {
         $this->objectRepository = $entityManager->getRepository($entityClass);
-        $this->monadicServiceRepositoryHelper = new MonadicServiceRepositoryHelper();
+
+        /** @var MonadicServiceRepositoryHelperInterface<Throwable, R> $monadicServiceRepositoryHelper */
+        $monadicServiceRepositoryHelper = new MonadicServiceRepositoryHelper();
+
+        $this->monadicServiceRepositoryHelper = $monadicServiceRepositoryHelper;
     }
 
     public function eitherFind($id): Either

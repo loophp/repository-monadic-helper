@@ -16,7 +16,7 @@ use Marcosh\LamPHPda\Either;
 use Throwable;
 
 /**
- * @template R
+ * @template R of object
  *
  * @implements MonadicServiceEntityRepositoryInterface<Throwable, R>
  * @extends ServiceEntityRepository<R>
@@ -52,6 +52,9 @@ class MonadicServiceEntityRepository extends ServiceEntityRepository implements 
      */
     private function getMonadicServiceRepositoryHelper(): MonadicServiceRepositoryHelperInterface
     {
-        return new MonadicServiceRepositoryHelper();
+        /** @var MonadicServiceRepositoryHelperInterface<Throwable, R> $monadicServiceRepositoryHelper */
+        $monadicServiceRepositoryHelper = new MonadicServiceRepositoryHelper();
+
+        return $monadicServiceRepositoryHelper;
     }
 }

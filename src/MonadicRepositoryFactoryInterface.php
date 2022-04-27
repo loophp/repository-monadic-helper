@@ -16,7 +16,7 @@ use Throwable;
 interface MonadicRepositoryFactoryInterface
 {
     /**
-     * @template R
+     * @template R of object
      *
      * @param class-string<R> $entityClass
      *
@@ -25,7 +25,7 @@ interface MonadicRepositoryFactoryInterface
     public function fromEntity(string $entityClass): MonadicRepositoryInterface;
 
     /**
-     * @template R
+     * @template R of object
      *
      * @param ObjectRepository<R> $objectRepository
      *

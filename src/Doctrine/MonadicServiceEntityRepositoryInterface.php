@@ -14,7 +14,7 @@ use Marcosh\LamPHPda\Either;
 
 /**
  * @template L
- * @template R
+ * @template R of object
  *
  * @extends ObjectRepository<R>
  */

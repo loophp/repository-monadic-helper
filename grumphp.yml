@@ -2,12 +2,13 @@ imports:
     - { resource: vendor/drupol/php-conventions/config/php73/grumphp.yml }
 
 parameters:
-    extra_tasks:
-        phpunit: ~
-
     # GrumPHP License
     tasks.license.holder: Pol Dellaiera
     tasks.license.date_from: 2021
+
+    # PHP CS Fixer
+    tasks.phpcsfixer.config: .php-cs-fixer.dist.php
+    tasks.phpcsfixer.diff: true
 
     # PHPCS
     tasks.phpcs.ignore_patterns:
@@ -27,18 +28,18 @@ parameters:
     tasks.phpstan.level: 8
     tasks.phpstan.blocking: true
     tasks.phpstan.ignore_patterns:
-        - ".github/"
-        - ".idea/"
-        - "build/"
-        - "benchmarks/"
-        - "docs/"
-        - "node_modules/"
-        - "resource/"
-        - "spec/"
-        - "var/"
-        - "vendor/"
-        - "tests/App/"
+        - "/.github/"
+        - "/.idea/"
+        - "/build/"
+        - "/benchmarks/"
+        - "/docs/"
+        - "/node_modules/"
+        - "/resource/"
+        - "/spec/"
+        - "/var/"
+        - "/vendor/"
         - "tests/unit/"
+        - "tests/src/"
 
     # Psalm
     tasks.psalm.blocking: true
@@ -52,3 +53,7 @@ parameters:
         - "/spec/"
         - "/var/"
         - "/vendor/"
+
+    extra_tasks:
+        phpunit:
+            always_execute: true

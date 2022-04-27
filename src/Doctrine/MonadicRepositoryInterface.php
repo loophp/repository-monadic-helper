@@ -10,10 +10,11 @@ declare(strict_types=1);
 namespace loophp\RepositoryMonadicHelper\Doctrine;
 
 use Marcosh\LamPHPda\Either;
+use Throwable;
 
 /**
- * @template L
- * @template R
+ * @template L of Throwable
+ * @template R of object
  */
 interface MonadicRepositoryInterface
 {

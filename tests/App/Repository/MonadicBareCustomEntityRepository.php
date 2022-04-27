@@ -21,23 +21,43 @@ class MonadicBareCustomEntityRepository implements MonadicServiceEntityRepositor
 {
     use MonadicServiceEntityRepositoryTrait;
 
-    public function find($id)
+    public function find($id): ?CustomEntity
     {
+        if (mt_rand(0, 1)) {
+            return null;
+        }
+
+        return new CustomEntity();
     }
 
-    public function findAll()
+    /**
+     * @return CustomEntity[]
+     */
+    public function findAll(): array
     {
+        return [new CustomEntity()];
     }
 
-    public function findBy(array $criteria, ?array $orderBy = null, $limit = null, $offset = null)
+    public function findBy(array $criteria, ?array $orderBy = null, ?int $limit = null, ?int $offset = null): array
     {
+        if (mt_rand(0, 1)) {
+            return [];
+        }
+
+        return [new CustomEntity()];
     }
 
-    public function findOneBy(array $criteria)
+    public function findOneBy(array $criteria): ?CustomEntity
     {
+        if (mt_rand(0, 1)) {
+            return null;
+        }
+
+        return new CustomEntity();
     }
 
     public function getClassName()
     {
+        return CustomEntity::class;
     }
 }
