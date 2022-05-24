@@ -36,7 +36,10 @@ final class MonadicServiceRepositoryHelper implements MonadicServiceRepositoryHe
             return $either;
         }
 
-        return Either::right($entity);
+        /** @var Either<L, R> $either */
+        $either = Either::right($entity);
+
+        return $either;
     }
 
     public function eitherFindAll(ObjectRepository $objectRepository): Either
@@ -97,6 +100,9 @@ final class MonadicServiceRepositoryHelper implements MonadicServiceRepositoryHe
             return $either;
         }
 
-        return Either::right($entity);
+        /** @var Either<L, R> $either */
+        $either = Either::right($entity);
+
+        return $either;
     }
 }
