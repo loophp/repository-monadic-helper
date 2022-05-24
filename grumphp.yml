@@ -38,6 +38,7 @@ parameters:
         - "/spec/"
         - "/var/"
         - "/vendor/"
+        - "tests/App/"
         - "tests/unit/"
         - "tests/src/"
 
