@@ -65,24 +65,26 @@ To use this package and have monadic repositories, there are
 3 options available:
 
 * Without alteration of existing Doctrine repositories
-  * Options 1: By using a service which is
+  * **Options 1**: By using a service which is
     creating a monadic repository from an entity class
     name or an existing repository.
 * With alteration of existing Doctrine repositories
-  * Option 2: By adding an interface, a trait and relevant
+  * **Option 2**: By adding an interface, a trait and relevant
     typing information like:
     `@implements MonadicServiceEntityRepositoryInterface<EntityClassName>`
-  * Option 3: By replacing `extends ServiceEntityRepository`
+  * **Option 3**: By replacing `extends ServiceEntityRepository`
     with `extends MonadicServiceEntityRepository`
     and add relevant typing information like:
     `@extends MonadicServiceEntityRepository<EntityClassName>`
 
-According to me, the best way to use this package is to **use the first option**.
+In my own opinion, the best way to use this package is to
+**use the first option**.
 
 It's paramount to replace `EntityClassName` with the entity class in use in the
 repository in order to let static analysis tools infer types properly.
 
-For the option 2 and 3, let's use the following usual Doctrine repository as example:
+For the option 2 and 3, let's use the following usual Doctrine repository as
+example:
 
 ```php
 <?php
@@ -122,6 +124,7 @@ namespace App\Controller;
 use App\Entity\MyCustomEntity;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use loophp\RepositoryMonadicHelper\MonadicRepositoryFactoryInterface;
 use Throwable;
 
 final class MyCustomController
@@ -131,7 +134,7 @@ final class MyCustomController
     ) {
         $body = $monadicRepositoryFactory
             ->fromEntity(MyCustomEntity::class);
-            ->find(123) // This returns a Either monad.
+            ->eitherFind(123) // This returns a Either monad.
             ->map(
                 static fn (MyCustomEntity $entity): string => $entity->getTitle()
             )
@@ -255,14 +258,11 @@ An exception is generated and wrapped in the monad when the returned result is `
 
 ## Todo
 
-* Get rid of PSalm and PHPStan baselines as soon as this [PR][53] is released,
 * Improve documentation and code examples.
-* Follow issues raised by this package:
-  * [phpstan/phpstan#6143][54]
 
 ## Contributing
 
-Feel free to contribute by sending Github pull requests. I'm quite responsive :-)
+Feel free to contribute by sending Github pull requests.
 
 If you can't contribute to the code, you can also sponsor me on [Github][5].
 
