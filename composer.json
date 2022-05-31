@@ -15,8 +15,7 @@
     ],
     "require": {
         "php": ">= 7.4",
-        "marcosh/lamphpda": "^1",
-        "roave/you-are-using-it-wrong": "^1"
+        "marcosh/lamphpda": "^1"
     },
     "require-dev": {
         "doctrine/doctrine-bundle": "^2.6",
@@ -40,8 +39,7 @@
         "allow-plugins": {
             "ergebnis/composer-normalize": true,
             "phpstan/extension-installer": true,
-            "phpro/grumphp": true,
-            "roave/you-are-using-it-wrong": true
+            "phpro/grumphp": true
         }
     },
     "scripts": {
