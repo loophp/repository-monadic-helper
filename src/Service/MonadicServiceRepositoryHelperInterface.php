@@ -11,9 +11,10 @@ namespace loophp\RepositoryMonadicHelper\Service;
 
 use Doctrine\Persistence\ObjectRepository;
 use Marcosh\LamPHPda\Either;
+use Throwable;
 
 /**
- * @template L
+ * @template L of Throwable
  * @template R of object
  */
 interface MonadicServiceRepositoryHelperInterface

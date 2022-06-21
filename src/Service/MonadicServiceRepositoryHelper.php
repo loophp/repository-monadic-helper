@@ -11,30 +11,26 @@ namespace loophp\RepositoryMonadicHelper\Service;
 
 use Doctrine\Persistence\ObjectRepository;
 use loophp\RepositoryMonadicHelper\Exception\MonadicRepositoryException;
+use loophp\RepositoryMonadicHelper\Exception\MonadicRepositoryExceptionInterface;
 use Marcosh\LamPHPda\Either;
 use Marcosh\LamPHPda\Maybe;
-use Throwable;
 
 /**
- * @template L of Throwable
  * @template R of object
  *
- * @implements MonadicServiceRepositoryHelperInterface<L, R>
+ * @implements MonadicServiceRepositoryHelperInterface<MonadicRepositoryExceptionInterface, R>
  */
 final class MonadicServiceRepositoryHelper implements MonadicServiceRepositoryHelperInterface
 {
     public function eitherFind(ObjectRepository $objectRepository, $id): Either
     {
-        /** @var Either<L, R> $either */
-        $either = Maybe::fromNullable($objectRepository->find($id))
+        return Maybe::fromNullable($objectRepository->find($id))
             ->toEither(
                 MonadicRepositoryException::entityNotFoundWithSuchId(
                     $objectRepository->getClassName(),
                     (string) $id
                 )
             );
-
-        return $either;
     }
 
     public function eitherFindAll(ObjectRepository $objectRepository): Either
@@ -42,15 +38,12 @@ final class MonadicServiceRepositoryHelper implements MonadicServiceRepositoryHe
         /** @var list<R> $entities */
         $entities = $objectRepository->findAll();
 
-        /** @var Either<L, list<R>> $either */
-        $either = Maybe::fromNullable(([] === $entities) ? null : $entities)
+        return Maybe::fromNullable(([] === $entities) ? null : $entities)
             ->toEither(
                 MonadicRepositoryException::entityNotFound(
                     $objectRepository->getClassName()
                 )
             );
-
-        return $either;
     }
 
     public function eitherFindBy(
@@ -63,29 +56,23 @@ final class MonadicServiceRepositoryHelper implements MonadicServiceRepositoryHe
         /** @var list<R> $entities */
         $entities = $objectRepository->findBy($criteria, $orderBy, $limit, $offset);
 
-        /** @var Either<L, list<R>> $either */
-        $either = Maybe::fromNullable(([] === $entities) ? null : $entities)
+        return Maybe::fromNullable(([] === $entities) ? null : $entities)
             ->toEither(
                 MonadicRepositoryException::entityNotFoundWithSuchCriteria(
                     $objectRepository->getClassName(),
                     $criteria
                 )
             );
-
-        return $either;
     }
 
     public function eitherFindOneBy(ObjectRepository $objectRepository, array $criteria): Either
     {
-        /** @var Either<L, R> $either */
-        $either = Maybe::fromNullable($objectRepository->findOneBy($criteria))
+        return Maybe::fromNullable($objectRepository->findOneBy($criteria))
             ->toEither(
                 MonadicRepositoryException::entityNotFoundWithSuchCriteria(
                     $objectRepository->getClassName(),
                     $criteria
                 )
             );
-
-        return $either;
     }
 }

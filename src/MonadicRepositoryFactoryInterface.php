@@ -11,7 +11,7 @@ namespace loophp\RepositoryMonadicHelper;
 
 use Doctrine\Persistence\ObjectRepository;
 use loophp\RepositoryMonadicHelper\Doctrine\MonadicRepositoryInterface;
-use Throwable;
+use loophp\RepositoryMonadicHelper\Exception\MonadicRepositoryExceptionInterface;
 
 interface MonadicRepositoryFactoryInterface
 {
@@ -20,7 +20,7 @@ interface MonadicRepositoryFactoryInterface
      *
      * @param class-string<R> $entityClass
      *
-     * @return MonadicRepositoryInterface<Throwable, R>
+     * @return MonadicRepositoryInterface<MonadicRepositoryExceptionInterface, R>
      */
     public function fromEntity(string $entityClass): MonadicRepositoryInterface;
 
@@ -29,7 +29,7 @@ interface MonadicRepositoryFactoryInterface
      *
      * @param ObjectRepository<R> $objectRepository
      *
-     * @return MonadicRepositoryInterface<Throwable, R>
+     * @return MonadicRepositoryInterface<MonadicRepositoryExceptionInterface, R>
      */
     public function fromRepository(ObjectRepository $objectRepository): MonadicRepositoryInterface;
 }

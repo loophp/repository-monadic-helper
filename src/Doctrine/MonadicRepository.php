@@ -11,20 +11,20 @@ namespace loophp\RepositoryMonadicHelper\Doctrine;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
+use loophp\RepositoryMonadicHelper\Exception\MonadicRepositoryExceptionInterface;
 use loophp\RepositoryMonadicHelper\Service\MonadicServiceRepositoryHelper;
 use loophp\RepositoryMonadicHelper\Service\MonadicServiceRepositoryHelperInterface;
 use Marcosh\LamPHPda\Either;
-use Throwable;
 
 /**
  * @template R of object
  *
- * @implements MonadicRepositoryInterface<Throwable, R>
+ * @implements MonadicRepositoryInterface<MonadicRepositoryExceptionInterface, R>
  */
 final class MonadicRepository implements MonadicRepositoryInterface
 {
     /**
-     * @var MonadicServiceRepositoryHelperInterface<Throwable, R>
+     * @var MonadicServiceRepositoryHelperInterface<MonadicRepositoryExceptionInterface, R>
      */
     private MonadicServiceRepositoryHelperInterface $monadicServiceRepositoryHelper;
 
@@ -42,7 +42,7 @@ final class MonadicRepository implements MonadicRepositoryInterface
     ) {
         $this->objectRepository = $entityManager->getRepository($entityClass);
 
-        /** @var MonadicServiceRepositoryHelperInterface<Throwable, R> $monadicServiceRepositoryHelper */
+        /** @var MonadicServiceRepositoryHelperInterface<MonadicRepositoryExceptionInterface, R> $monadicServiceRepositoryHelper */
         $monadicServiceRepositoryHelper = new MonadicServiceRepositoryHelper();
 
         $this->monadicServiceRepositoryHelper = $monadicServiceRepositoryHelper;
