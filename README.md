@@ -133,7 +133,7 @@ final class MyCustomController
         MonadicRepositoryFactoryInterface $monadicRepositoryFactory
     ) {
         $body = $monadicRepositoryFactory
-            ->fromEntity(MyCustomEntity::class);
+            ->fromEntity(MyCustomEntity::class)
             ->eitherFind(123) // This returns a Either monad.
             ->map(
                 static fn (MyCustomEntity $entity): string => $entity->getTitle()
