@@ -1,0 +1,6 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Trait loophp\\\\RepositoryMonadicHelper\\\\MonadicServiceEntityRepositoryTrait is used zero times and is not analysed\\.$#"
+			count: 1
+			path: src/MonadicServiceEntityRepositoryTrait.php
