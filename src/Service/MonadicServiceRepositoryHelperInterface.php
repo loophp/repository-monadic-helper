@@ -30,7 +30,7 @@ interface MonadicServiceRepositoryHelperInterface
     /**
      * @param ObjectRepository<R> $objectRepository
      *
-     * @return Either<L, list<R>>
+     * @return Either<L, array<R>>
      */
     public function eitherFindAll(ObjectRepository $objectRepository): Either;
 
@@ -39,7 +39,7 @@ interface MonadicServiceRepositoryHelperInterface
      * @param array<string, mixed> $criteria
      * @param null|array<string, 'asc'|'desc'|'ASC'|'DESC'>|null $orderBy
      *
-     * @return Either<L, list<R>>
+     * @return Either<L, array<R>>
      */
     public function eitherFindBy(
         ObjectRepository $objectRepository,

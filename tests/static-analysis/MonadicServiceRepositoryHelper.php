@@ -28,7 +28,7 @@ function testEitherFind1(Either $either): void
 };
 
 /**
- * @param Either<Throwable, list<CustomEntity>> $either
+ * @param Either<Throwable, array<CustomEntity>> $either
  */
 function testEitherFindAll1(Either $either): void
 {

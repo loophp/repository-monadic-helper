@@ -28,7 +28,7 @@ interface MonadicServiceEntityRepositoryInterface extends ObjectRepository
     public function eitherFind($id): Either;
 
     /**
-     * @return Either<L, list<R>>
+     * @return Either<L, array<R>>
      */
     public function eitherFindAll(): Either;
 
@@ -36,7 +36,7 @@ interface MonadicServiceEntityRepositoryInterface extends ObjectRepository
      * @param array<string, mixed> $criteria
      * @param null|array<string, 'asc'|'desc'|'ASC'|'DESC'>|null $orderBy
      *
-     * @return Either<L, list<R>>
+     * @return Either<L, array<R>>
      */
     public function eitherFindBy(
         array $criteria,

@@ -35,7 +35,6 @@ final class MonadicServiceRepositoryHelper implements MonadicServiceRepositoryHe
 
     public function eitherFindAll(ObjectRepository $objectRepository): Either
     {
-        /** @var list<R> $entities */
         $entities = $objectRepository->findAll();
 
         return Maybe::fromNullable(([] === $entities) ? null : $entities)
@@ -53,7 +52,6 @@ final class MonadicServiceRepositoryHelper implements MonadicServiceRepositoryHe
         ?int $limit = null,
         ?int $offset = null
     ): Either {
-        /** @var list<R> $entities */
         $entities = $objectRepository->findBy($criteria, $orderBy, $limit, $offset);
 
         return Maybe::fromNullable(([] === $entities) ? null : $entities)

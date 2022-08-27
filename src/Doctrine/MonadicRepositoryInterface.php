@@ -26,7 +26,7 @@ interface MonadicRepositoryInterface
     public function eitherFind($id): Either;
 
     /**
-     * @return Either<L, list<R>>
+     * @return Either<L, array<R>>
      */
     public function eitherFindAll(): Either;
 
@@ -34,7 +34,7 @@ interface MonadicRepositoryInterface
      * @param array<string, mixed> $criteria
      * @param null|array<string, 'asc'|'desc'|'ASC'|'DESC'>|null $orderBy
      *
-     * @return Either<L, list<R>>
+     * @return Either<L, array<R>>
      */
     public function eitherFindBy(
         array $criteria,
