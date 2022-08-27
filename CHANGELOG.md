@@ -5,10 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/loophp/repository-monadic-helper/compare/1.0.6...HEAD)
+## [1.0.7](https://github.com/loophp/repository-monadic-helper/compare/1.0.6...1.0.7)
 
 ### Commits
 
+- refactor: Use `prettier`. [`4a6a853`](https://github.com/loophp/repository-monadic-helper/commit/4a6a8531ccdb060161ff923b2597a2abf189b13b)
+- Add Nix files for development. [`38ecf4b`](https://github.com/loophp/repository-monadic-helper/commit/38ecf4b91becc1640a0f6ffc146c899b2d19e15c)
+- refactor: Rely on typing information from Doctrine directly. [`1483929`](https://github.com/loophp/repository-monadic-helper/commit/14839296756b67a5e1a1bb7493ae9ad38a7ea709)
+- docs: Add/update CHANGELOG. [`ce3ce5b`](https://github.com/loophp/repository-monadic-helper/commit/ce3ce5bca9cbc2fad6010bcca2f928654e9eba91)
 - tests: Add PHPStan baseline. [`2fdc2b6`](https://github.com/loophp/repository-monadic-helper/commit/2fdc2b642713326556799949f54a032bc1b4612d)
 - chore: Replace docker with Nix. [`da8bb3d`](https://github.com/loophp/repository-monadic-helper/commit/da8bb3de6e9e900b471534b37fc1f77a442f60a0)
 - tests: Add PHPStan baseline. [`be76d07`](https://github.com/loophp/repository-monadic-helper/commit/be76d07c8a847f969b5918fd3f1274bfa494029a)
