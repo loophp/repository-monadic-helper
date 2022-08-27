@@ -5,10 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.7](https://github.com/loophp/repository-monadic-helper/compare/1.0.6...1.0.7)
+## [1.0.8](https://github.com/loophp/repository-monadic-helper/compare/1.0.7...1.0.8)
 
 ### Commits
 
+- chore: Update `.gitattributes`. [`778f425`](https://github.com/loophp/repository-monadic-helper/commit/778f425dfa4119f3095b5fd2d0a960713e710897)
+- chore: Update `.gitattributes`. [`204e3d3`](https://github.com/loophp/repository-monadic-helper/commit/204e3d364d7b10c4a2c354e9e1ac5d78779d062b)
+- ci: SImplify workflows. [`92e5f0e`](https://github.com/loophp/repository-monadic-helper/commit/92e5f0ed48bcea051300b0fc3410cb58ead661b7)
+- chore: Update `.editorconfig`. [`ce72092`](https://github.com/loophp/repository-monadic-helper/commit/ce7209235577fc9cbabfc3fa4e2f29584f6be893)
+
+## [1.0.7](https://github.com/loophp/repository-monadic-helper/compare/1.0.6...1.0.7) - 2022-08-27
+
+### Commits
+
+- docs: Update CHANGELOG. [`7eb0a75`](https://github.com/loophp/repository-monadic-helper/commit/7eb0a75a2612d6fdfbd31d6a283df14dc73e66b2)
 - refactor: Use `prettier`. [`4a6a853`](https://github.com/loophp/repository-monadic-helper/commit/4a6a8531ccdb060161ff923b2597a2abf189b13b)
 - Add Nix files for development. [`38ecf4b`](https://github.com/loophp/repository-monadic-helper/commit/38ecf4b91becc1640a0f6ffc146c899b2d19e15c)
 - refactor: Rely on typing information from Doctrine directly. [`1483929`](https://github.com/loophp/repository-monadic-helper/commit/14839296756b67a5e1a1bb7493ae9ad38a7ea709)
