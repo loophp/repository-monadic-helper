@@ -14,9 +14,11 @@
 /.scrutinizer.yml export-ignore
 /CHANGELOG.md export-ignore
 /infection.json export-ignore
+/LICENSE export-ignore
 /grumphp.yml export-ignore
 /phpspec.yml export-ignore
 /psalm.xml export-ignore
 /phpstan-baseline.neon export-ignore
 /phpstan.neon export-ignore
+/phpunit.xml export-ignore
 /README.md export-ignore
