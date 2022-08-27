@@ -43,8 +43,8 @@
         }
     },
     "scripts": {
-        "changelog-unreleased": "nix run github:loophp/nix-auto-changelog -- -c .auto-changelog -u",
-        "changelog-version": "nix run github:loophp/nix-auto-changelog -- -c .auto-changelog -v",
+        "changelog-unreleased": "auto-changelog -c .auto-changelog -u",
+        "changelog-version": "auto-changelog -c .auto-changelog -v",
         "grumphp": "./vendor/bin/grumphp run"
     }
 }
