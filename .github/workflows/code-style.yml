@@ -13,7 +13,7 @@ jobs:
             fail-fast: false
             matrix:
                 operating-system: [ubuntu-latest]
-                php-versions: ['7.4']
+                php-versions: ["7.4"]
 
         steps:
             - name: Set git to use LF
@@ -53,4 +53,4 @@ jobs:
             - name: Send feedback on Github
               if: ${{ failure() }}
               run: |
-                vendor/bin/php-cs-fixer --allow-risky=yes --config=.php_cs.dist fix --dry-run --format=checkstyle | cs2pr
+                  vendor/bin/php-cs-fixer --allow-risky=yes --config=.php_cs.dist fix --dry-run --format=checkstyle | cs2pr

@@ -1,9 +1,9 @@
 [![Latest Stable Version][latest stable version]][1]
- [![GitHub stars][github stars]][1]
- [![Total Downloads][total downloads]][1]
- [![Type Coverage][type coverage]][4]
- [![License][license]][1]
- [![Donate!][donate github]][5]
+[![GitHub stars][github stars]][1]
+[![Total Downloads][total downloads]][1]
+[![Type Coverage][type coverage]][4]
+[![License][license]][1]
+[![Donate!][donate github]][github sponsors link]
 
 # Doctrine Repository Monadic Helper
 
@@ -24,7 +24,7 @@ When using properly typed monads and callbacks, types inconsistencies will
 be instantly detected by static analysis tools. This provides a safer and
 better way to design functions and data transformation methods.
 
-The monad in use in this project is the *Either* monad, provided
+The monad in use in this project is the _Either_ monad, provided
 by the contrib package [Lamphpda][51] from [Marco Perone][52].
 
 ## History
@@ -44,14 +44,15 @@ of programming and adopt a more functional programming style.
 And lastly, willing to learn more about the monads which are some kind of
 "design patterns" for functional programming, I started to write this package.
 
-This package does not have the pretention to become a *de-facto* standard on how to use
-Doctrine repositories, but it might help people understanding what monads are,
-how to use them, and hopefully reduce the amount of conditions in their code.
+This package does not have the pretention to become a _de-facto_ standard on how
+to use Doctrine repositories, but it might help people understanding what monads
+are, how to use them, and hopefully reduce the amount of conditions in their
+code.
 
 The monad package in use here is an arbitrary choice. I could have used
 some other packages, but [marcosh/lamphpda][51] seems to be the best option,
-especially when you analyse your code with static analysis tools to detect issues
-upfront, without running their unit tests.
+especially when you analyse your code with static analysis tools to detect
+issues upfront, without running their unit tests.
 
 ## Installation
 
@@ -64,15 +65,15 @@ composer require loophp/repository-monadic-helper
 To use this package and have monadic repositories, there are
 3 options available:
 
-* Without alteration of existing Doctrine repositories
-  * **Options 1**: By using a service which is
+- Without alteration of existing Doctrine repositories
+  - **Options 1**: By using a service which is
     creating a monadic repository from an entity class
     name or an existing repository.
-* With alteration of existing Doctrine repositories
-  * **Option 2**: By adding an interface, a trait and relevant
+- With alteration of existing Doctrine repositories
+  - **Option 2**: By adding an interface, a trait and relevant
     typing information like:
     `@implements MonadicServiceEntityRepositoryInterface<EntityClassName>`
-  * **Option 3**: By replacing `extends ServiceEntityRepository`
+  - **Option 3**: By replacing `extends ServiceEntityRepository`
     with `extends MonadicServiceEntityRepository`
     and add relevant typing information like:
     `@extends MonadicServiceEntityRepository<EntityClassName>`
@@ -224,7 +225,8 @@ Signature:
 eitherFind(int|string $id): Either<Throwable, MyCustomEntity>
 ```
 
-An exception is generated and wrapped in the monad when the returned result is `null`.
+An exception is generated and wrapped in the monad when the returned result is
+`null`.
 
 ### eitherFindAll
 
@@ -234,7 +236,8 @@ Signature:
 eitherFindAll(): Either<Throwable, list<MyCustomEntity>>
 ```
 
-An exception is generated and wrapped in the monad when the returned result is empty.
+An exception is generated and wrapped in the monad when the returned result is
+empty.
 
 ### eitherFindBy
 
@@ -244,7 +247,8 @@ Signature:
 eitherFindBy(array $criteria, ?array $orderBy = null, ?int $limit = null, ?int $offset = null): Either<Throwable, list<MyCustomEntity>>
 ```
 
-An exception is generated and wrapped in the monad when the returned result is empty.
+An exception is generated and wrapped in the monad when the returned result is
+empty.
 
 ### eitherFindOneBy
 
@@ -254,17 +258,25 @@ Signature:
 eitherFindOneBy(array $criteria): Either<Throwable, MyCustomEntity>
 ```
 
-An exception is generated and wrapped in the monad when the returned result is `null`.
+An exception is generated and wrapped in the monad when the returned result is
+`null`.
 
 ## Todo
 
-* Improve documentation and code examples.
+- Improve documentation and code examples.
 
 ## Contributing
 
-Feel free to contribute by sending Github pull requests.
+Feel free to contribute by sending pull requests. We are a usually very
+responsive team and we will help you going through your pull request from the
+beginning to the end.
 
-If you can't contribute to the code, you can also sponsor me on [Github][5].
+For some reasons, if you can't contribute to the code and willing to help,
+sponsoring is a good, sound and safe way to show us some gratitude for the hours
+we invested in this package.
+
+Sponsor me on [Github][github sponsors link] and/or any of [the
+contributors][contributors].
 
 ## Changelog
 
@@ -287,8 +299,7 @@ For more detailed changelogs, please check [the release changelogs][45].
 [37]: https://github.com/infection/infection
 [38]: https://github.com/phpstan/phpstan
 [39]: https://github.com/vimeo/psalm
-[5]: https://github.com/sponsors/drupol
-[6]: https://www.paypal.me/drupol
+[github sponsors link]: https://github.com/sponsors/drupol
 [40]: https://packagist.org/packages/doctrine/doctrine-bundle
 [41]: https://en.wikipedia.org/wiki/SOLID
 [42]: https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
@@ -305,3 +316,4 @@ For more detailed changelogs, please check [the release changelogs][45].
 [53]: https://github.com/doctrine/persistence/pull/213
 [54]: https://github.com/phpstan/phpstan/issues/6143
 [55]: https://github.com/doctrine/persistence/issues/23
+[contributors]: https://github.com/loophp/repository-monadic-helper/graphs/contributors
