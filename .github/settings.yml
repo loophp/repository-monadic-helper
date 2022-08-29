@@ -12,10 +12,10 @@ branches:
               strict: true
               contexts:
                   - "Static Analysis (ubuntu-latest, 7.4)"
-                  - "Static Analysis (ubuntu-latest, 8.0)"
+                  - "Static Analysis (ubuntu-latest, 8.1)"
                   - "Code Style (ubuntu-latest, 7.4)"
-                  - "Code Style (ubuntu-latest, 8.0)"
-
+                  - "Code Style (ubuntu-latest, 8.1)"
+                  - "prettier"
           restrictions: null
           required_linear_history: true
 
