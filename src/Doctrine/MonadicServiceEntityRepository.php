@@ -19,6 +19,7 @@ use Throwable;
  * @template R of object
  *
  * @implements MonadicServiceEntityRepositoryInterface<Throwable, R>
+ *
  * @extends ServiceEntityRepository<R>
  */
 class MonadicServiceEntityRepository extends ServiceEntityRepository implements MonadicServiceEntityRepositoryInterface

@@ -16,6 +16,7 @@ use tests\loophp\RepositoryMonadicHelper\App\Entity\CustomEntity;
 
 /**
  * @internal
+ *
  * @coversNothing
  */
 final class MonadicRepositoryHelperTest extends TestCase
