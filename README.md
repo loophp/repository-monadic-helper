@@ -1,6 +1,10 @@
-[![Latest Stable Version][latest stable version]][1]
-[![GitHub stars][github stars]][1] [![Total Downloads][total downloads]][1]
-[![Type Coverage][type coverage]][4] [![License][license]][1]
+[![Latest Stable Version][latest stable version]][packagist link]
+[![GitHub stars][github stars]][packagist link]
+[![Total Downloads][total downloads]][packagist link]
+[![GitHub Workflow Status][github workflow status]][github actions link]
+[![Scrutinizer code quality][code quality]][scrutinizer link]
+[![Type Coverage][type coverage]][shepherd link]
+[![License][license]][packagist link]
 [![Donate!][donate github]][github sponsors link]
 
 # Doctrine Repository Monadic Helper
@@ -279,20 +283,25 @@ See [CHANGELOG.md][47] for a changelog based on [git commits][46].
 
 For more detailed changelogs, please check [the release changelogs][45].
 
-[1]: https://packagist.org/packages/loophp/repository-monadic-helper
-[latest stable version]:
-  https://img.shields.io/packagist/v/loophp/repository-monadic-helper.svg?style=flat-square
-[github stars]:
-  https://img.shields.io/github/stars/loophp/repository-monadic-helper.svg?style=flat-square
-[total downloads]:
-  https://img.shields.io/packagist/dt/loophp/repository-monadic-helper.svg?style=flat-square
-[license]:
-  https://img.shields.io/packagist/l/loophp/repository-monadic-helper.svg?style=flat-square
-[donate github]:
-  https://img.shields.io/badge/Sponsor-Github-brightgreen.svg?style=flat-square
-[type coverage]:
-  https://img.shields.io/badge/dynamic/json?style=flat-square&color=color&label=Type%20coverage&query=message&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Floophp%2Frepository-monadic-helper%2Fcoverage
-[4]: https://shepherd.dev/github/loophp/repository-monadic-helper
+[phpsandbox image]:
+  https://img.shields.io/badge/Try%20it-online%20!-brightgreen?style=flat-square
+[packagist link]: https://packagist.org/packages/loophp/repository-monadic-helper
+[github actions link]: https://github.com/loophp/repository-monadic-helper/actions
+[scrutinizer link]: https://scrutinizer-ci.com/g/loophp/repository-monadic-helper/?branch=main
+[shepherd link]: https://shepherd.dev/github/loophp/repository-monadic-helper
+[github stars]: https://img.shields.io/github/stars/loophp/repository-monadic-helper.svg?style=flat-square
+[total downloads]: https://img.shields.io/packagist/dt/loophp/repository-monadic-helper.svg?style=flat-square
+[github workflow status]: https://img.shields.io/github/workflow/status/loophp/repository-monadic-helper/Unit%20tests?style=flat-square
+[code quality]: https://img.shields.io/scrutinizer/quality/g/loophp/repository-monadic-helper/main.svg?style=flat-square
+[type coverage]: https://img.shields.io/badge/dynamic/json?style=flat-square&color=color&label=Type%20coverage&query=message&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Floophp%2Frepository-monadic-helper%2Fcoverage
+[license]: https://img.shields.io/packagist/l/loophp/repository-monadic-helper.svg?style=flat-square
+[donate github]: https://img.shields.io/badge/Sponsor-Github-brightgreen.svg?style=flat-square
+[latest stable version]: https://img.shields.io/packagist/v/loophp/repository-monadic-helper.svg?style=flat-square
+[github stars]: https://img.shields.io/github/stars/loophp/repository-monadic-helper.svg?style=flat-square
+[total downloads]: https://img.shields.io/packagist/dt/loophp/repository-monadic-helper.svg?style=flat-square
+[license]: https://img.shields.io/packagist/l/loophp/repository-monadic-helper.svg?style=flat-square
+[type coverage]: https://img.shields.io/badge/dynamic/json?style=flat-square&color=color&label=Type%20coverage&query=message&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Floophp%2Frepository-monadic-helper%2Fcoverage
+
 [34]: https://github.com/loophp/repository-monadic-helper/issues
 [2]: https://github.com/loophp/repository-monadic-helper/actions
 [35]: http://www.phpspec.net/
@@ -308,9 +317,9 @@ For more detailed changelogs, please check [the release changelogs][45].
 [44]:
   https://tomasvotruba.com/blog/2017/10/16/how-to-use-repository-with-doctrine-as-service-in-symfony/
 [45]: https://github.com/loophp/repository-monadic-helper/releases
-[46]: https://github.com/loophp/repository-monadic-helper/commits/master
+[46]: https://github.com/loophp/repository-monadic-helper/commits/main
 [47]:
-  https://github.com/loophp/repository-monadic-helper/blob/master/CHANGELOG.md
+  https://github.com/loophp/repository-monadic-helper/blob/main/CHANGELOG.md
 [48]: https://packagist.org/packages/symfony/maker-bundle
 [49]: https://packagist.org/packages/doctrine/persistence
 [50]:
