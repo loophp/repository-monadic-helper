@@ -39,7 +39,8 @@
         "allow-plugins": {
             "ergebnis/composer-normalize": true,
             "phpstan/extension-installer": true,
-            "phpro/grumphp": true
+            "phpro/grumphp": true,
+            "roave/you-are-using-it-wrong": true
         }
     },
     "scripts": {
