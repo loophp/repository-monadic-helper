@@ -5,10 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.8](https://github.com/loophp/repository-monadic-helper/compare/1.0.7...1.0.8)
+## [1.0.9](https://github.com/loophp/repository-monadic-helper/compare/1.0.8...1.0.9)
+
+### Merged
+
+- chore(deps): update actions/stale action to v6 [`#27`](https://github.com/loophp/repository-monadic-helper/pull/27)
+- Configure Renovate [`#26`](https://github.com/loophp/repository-monadic-helper/pull/26)
+- build(deps): Bump shivammathur/setup-php from 2.18.1 to 2.22.0 [`#25`](https://github.com/loophp/repository-monadic-helper/pull/25)
+- build(deps): Bump cachix/install-nix-action from 17 to 18 [`#24`](https://github.com/loophp/repository-monadic-helper/pull/24)
 
 ### Commits
 
+- Update `composer.json`. [`7297b1c`](https://github.com/loophp/repository-monadic-helper/commit/7297b1cbec43a2cbcaeec8dda501586fa9c21548)
+- fix Nix environment [`157752a`](https://github.com/loophp/repository-monadic-helper/commit/157752a53e4d502dda5ceb91f538d2d009c44d7d)
+- feat: wrap repository methods around `try/catch`. [`91d7abd`](https://github.com/loophp/repository-monadic-helper/commit/91d7abdde27580478d29a983cbfc7544b36ed15e)
+- chore(deps): add renovate.json [`b392975`](https://github.com/loophp/repository-monadic-helper/commit/b392975b86d86ad481b8c7dcf6d26eda7ec191b2)
+- docs: Update README [`7091db9`](https://github.com/loophp/repository-monadic-helper/commit/7091db96b7f3cc39c400547099b52114da16d932)
+- ci: update static files [`ffad734`](https://github.com/loophp/repository-monadic-helper/commit/ffad734634d28df7d9790cf36574dabcb037e94d)
+- Autofix code style. [`9335dd6`](https://github.com/loophp/repository-monadic-helper/commit/9335dd6ce20bf7c54663c61afbc9737ca8e5f682)
+- chore: Update static files. [`cfcd26a`](https://github.com/loophp/repository-monadic-helper/commit/cfcd26aabbbf4f4af2530bfd62294f4cc22c80e3)
+
+## [1.0.8](https://github.com/loophp/repository-monadic-helper/compare/1.0.7...1.0.8) - 2022-08-27
+
+### Commits
+
+- docs: Update CHANGELOG. [`05e7a4d`](https://github.com/loophp/repository-monadic-helper/commit/05e7a4db33c83d3b1be2cd633a7eaa3b1c633659)
 - chore: Update `.gitattributes`. [`778f425`](https://github.com/loophp/repository-monadic-helper/commit/778f425dfa4119f3095b5fd2d0a960713e710897)
 - chore: Update `.gitattributes`. [`204e3d3`](https://github.com/loophp/repository-monadic-helper/commit/204e3d364d7b10c4a2c354e9e1ac5d78779d062b)
 - ci: SImplify workflows. [`92e5f0e`](https://github.com/loophp/repository-monadic-helper/commit/92e5f0ed48bcea051300b0fc3410cb58ead661b7)
