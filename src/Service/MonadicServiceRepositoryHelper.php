@@ -14,6 +14,7 @@ use loophp\RepositoryMonadicHelper\Exception\MonadicRepositoryException;
 use loophp\RepositoryMonadicHelper\Exception\MonadicRepositoryExceptionInterface;
 use Marcosh\LamPHPda\Either;
 use Marcosh\LamPHPda\Maybe;
+use Throwable;
 
 /**
  * @template R of object
@@ -24,9 +25,20 @@ final class MonadicServiceRepositoryHelper implements MonadicServiceRepositoryHe
 {
     public function eitherFind(ObjectRepository $objectRepository, $id): Either
     {
-        return Maybe::fromNullable($objectRepository->find($id))
+        try {
+            $maybeEntity = $objectRepository->find($id);
+        } catch (Throwable $exception) {
+            $exception = MonadicRepositoryException::entityNotFoundWithSuchId(
+                $objectRepository->getClassName(),
+                (string) $id,
+                (int) $exception->getCode(),
+                $exception
+            );
+        }
+
+        return Maybe::fromNullable($maybeEntity ?? null)
             ->toEither(
-                MonadicRepositoryException::entityNotFoundWithSuchId(
+                $exception ?? MonadicRepositoryException::entityNotFoundWithSuchId(
                     $objectRepository->getClassName(),
                     (string) $id
                 )
@@ -35,11 +47,21 @@ final class MonadicServiceRepositoryHelper implements MonadicServiceRepositoryHe
 
     public function eitherFindAll(ObjectRepository $objectRepository): Either
     {
-        $entities = $objectRepository->findAll();
+        $entities = [];
+
+        try {
+            $entities = $objectRepository->findAll();
+        } catch (Throwable $exception) {
+            $exception = MonadicRepositoryException::entityNotFound(
+                $objectRepository->getClassName(),
+                (int) $exception->getCode(),
+                $exception
+            );
+        }
 
         return Maybe::fromNullable(([] === $entities) ? null : $entities)
             ->toEither(
-                MonadicRepositoryException::entityNotFound(
+                $exception ?? MonadicRepositoryException::entityNotFound(
                     $objectRepository->getClassName()
                 )
             );
@@ -52,11 +74,22 @@ final class MonadicServiceRepositoryHelper implements MonadicServiceRepositoryHe
         ?int $limit = null,
         ?int $offset = null
     ): Either {
-        $entities = $objectRepository->findBy($criteria, $orderBy, $limit, $offset);
+        $entities = [];
+
+        try {
+            $entities = $objectRepository->findBy($criteria, $orderBy, $limit, $offset);
+        } catch (Throwable $exception) {
+            $exception = MonadicRepositoryException::entityNotFoundWithSuchCriteria(
+                $objectRepository->getClassName(),
+                $criteria,
+                (int) $exception->getCode(),
+                $exception
+            );
+        }
 
         return Maybe::fromNullable(([] === $entities) ? null : $entities)
             ->toEither(
-                MonadicRepositoryException::entityNotFoundWithSuchCriteria(
+                $exception ?? MonadicRepositoryException::entityNotFoundWithSuchCriteria(
                     $objectRepository->getClassName(),
                     $criteria
                 )
@@ -65,9 +98,20 @@ final class MonadicServiceRepositoryHelper implements MonadicServiceRepositoryHe
 
     public function eitherFindOneBy(ObjectRepository $objectRepository, array $criteria): Either
     {
-        return Maybe::fromNullable($objectRepository->findOneBy($criteria))
+        try {
+            $maybeEntity = $objectRepository->findOneBy($criteria);
+        } catch (Throwable $exception) {
+            $exception = MonadicRepositoryException::entityNotFoundWithSuchCriteria(
+                $objectRepository->getClassName(),
+                $criteria,
+                (int) $exception->getCode(),
+                $exception
+            );
+        }
+
+        return Maybe::fromNullable($maybeEntity ?? null)
             ->toEither(
-                MonadicRepositoryException::entityNotFoundWithSuchCriteria(
+                $exception ?? MonadicRepositoryException::entityNotFoundWithSuchCriteria(
                     $objectRepository->getClassName(),
                     $criteria
                 )
