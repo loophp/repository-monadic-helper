@@ -22,7 +22,7 @@
         "doctrine/orm": "^2.12",
         "drupol/php-conventions": "^5",
         "phpspec/prophecy-phpunit": "^2.0",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^10.0"
     },
     "autoload": {
         "psr-4": {
