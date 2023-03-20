@@ -14,3 +14,4 @@
 /.php_cs.cache
 /var/
 /.phpunit.result.cache
+.phpunit.cache/test-results

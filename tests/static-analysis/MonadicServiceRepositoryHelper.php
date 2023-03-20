@@ -8,7 +8,6 @@
 declare(strict_types=1);
 
 use loophp\RepositoryMonadicHelper\Service\MonadicServiceRepositoryHelper;
-use loophp\RepositoryMonadicHelper\Service\MonadicServiceRepositoryHelperInterface;
 use Marcosh\LamPHPda\Either;
 use tests\loophp\RepositoryMonadicHelper\App\Entity\CustomEntity;
 use tests\loophp\RepositoryMonadicHelper\App\Repository\BareCustomEntityRepository;
@@ -16,7 +15,7 @@ use Throwable;
 
 include __DIR__ . '/../../vendor/autoload.php';
 
-/** @var MonadicServiceRepositoryHelperInterface<Throwable, CustomEntity> $helper */
+/** @var MonadicServiceRepositoryHelper<CustomEntity> $helper */
 $helper = new MonadicServiceRepositoryHelper();
 $repository = new BareCustomEntityRepository();
 

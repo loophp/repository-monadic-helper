@@ -23,7 +23,7 @@ use Throwable;
  */
 final class MonadicServiceRepositoryHelper implements MonadicServiceRepositoryHelperInterface
 {
-    public function eitherFind(ObjectRepository $objectRepository, $id): Either
+    public function eitherFind(ObjectRepository $objectRepository, int|string $id): Either
     {
         try {
             $maybeEntity = $objectRepository->find($id);

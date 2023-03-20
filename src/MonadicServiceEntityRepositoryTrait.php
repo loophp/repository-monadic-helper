@@ -14,7 +14,7 @@ use Marcosh\LamPHPda\Either;
 
 trait MonadicServiceEntityRepositoryTrait
 {
-    public function eitherFind($id): Either
+    public function eitherFind(int|string $id): Either
     {
         return (new MonadicServiceRepositoryHelper())->eitherFind($this, $id);
     }

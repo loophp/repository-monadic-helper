@@ -21,11 +21,10 @@ interface MonadicServiceRepositoryHelperInterface
 {
     /**
      * @param ObjectRepository<R> $objectRepository
-     * @param int|string $id
      *
      * @return Either<L, R>
      */
-    public function eitherFind(ObjectRepository $objectRepository, $id): Either;
+    public function eitherFind(ObjectRepository $objectRepository, int|string $id): Either;
 
     /**
      * @param ObjectRepository<R> $objectRepository

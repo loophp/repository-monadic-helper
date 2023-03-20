@@ -23,7 +23,7 @@ class MonadicBareCustomEntityRepository implements MonadicServiceEntityRepositor
 
     public function find($id): ?CustomEntity
     {
-        if (mt_rand(0, 1)) {
+        if (random_int(0, 1)) {
             return null;
         }
 
@@ -40,7 +40,7 @@ class MonadicBareCustomEntityRepository implements MonadicServiceEntityRepositor
 
     public function findBy(array $criteria, ?array $orderBy = null, ?int $limit = null, ?int $offset = null): array
     {
-        if (mt_rand(0, 1)) {
+        if (random_int(0, 1)) {
             return [];
         }
 
@@ -49,7 +49,7 @@ class MonadicBareCustomEntityRepository implements MonadicServiceEntityRepositor
 
     public function findOneBy(array $criteria): ?CustomEntity
     {
-        if (mt_rand(0, 1)) {
+        if (random_int(0, 1)) {
             return null;
         }
 

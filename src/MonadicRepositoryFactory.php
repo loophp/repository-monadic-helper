@@ -16,11 +16,8 @@ use loophp\RepositoryMonadicHelper\Doctrine\MonadicRepositoryInterface;
 
 final class MonadicRepositoryFactory implements MonadicRepositoryFactoryInterface
 {
-    private EntityManagerInterface $entityManager;
-
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(private readonly EntityManagerInterface $entityManager)
     {
-        $this->entityManager = $entityManager;
     }
 
     public function fromEntity(string $entityClass): MonadicRepositoryInterface

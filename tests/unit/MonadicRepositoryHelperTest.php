@@ -11,7 +11,6 @@ use Doctrine\Persistence\ObjectRepository;
 use loophp\RepositoryMonadicHelper\Service\MonadicServiceRepositoryHelper;
 use Marcosh\LamPHPda\Either;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use tests\loophp\RepositoryMonadicHelper\App\Entity\CustomEntity;
 
 /**
@@ -21,23 +20,23 @@ use tests\loophp\RepositoryMonadicHelper\App\Entity\CustomEntity;
  */
 final class MonadicRepositoryHelperTest extends TestCase
 {
-    use ProphecyTrait;
-
     public function testEitherFind()
     {
         $helper = new MonadicServiceRepositoryHelper();
-        $repository = $this->prophesize(ObjectRepository::class);
+        $repository = $this
+            ->getMockBuilder(ObjectRepository::class)
+            ->getMock();
 
         $repository
-            ->getClassName()
+            ->method('getClassName')
             ->willReturn('EntityClass');
 
         $repository
-            ->find(123)
+            ->method('find')
             ->willReturn(123);
 
         $return = $helper
-            ->eitherFind($repository->reveal(), 123)
+            ->eitherFind($repository, 123)
             ->eval(
                 static fn (Throwable $i): Throwable => $i,
                 static fn (int $i): int => $i
@@ -45,12 +44,20 @@ final class MonadicRepositoryHelperTest extends TestCase
 
         self::assertEquals(123, $return);
 
+        $repository = $this
+            ->getMockBuilder(ObjectRepository::class)
+            ->getMock();
+
         $repository
-            ->find('exception')
+            ->method('getClassName')
+            ->willReturn('EntityClass');
+
+        $repository
+            ->method('find')
             ->willReturn(null);
 
         $return = $helper
-            ->eitherFind($repository->reveal(), 'exception')
+            ->eitherFind($repository, 'exception')
             ->eval(
                 static fn (Throwable $i): Throwable => $i,
                 static fn (int $i): int => $i
@@ -62,18 +69,21 @@ final class MonadicRepositoryHelperTest extends TestCase
     public function testEitherFindAll()
     {
         $helper = new MonadicServiceRepositoryHelper();
-        $repository = $this->prophesize(ObjectRepository::class);
+
+        $repository = $this
+            ->getMockBuilder(ObjectRepository::class)
+            ->getMock();
 
         $repository
-            ->getClassName()
+            ->method('getClassName')
             ->willReturn('EntityClass');
 
         $repository
-            ->findAll()
+            ->method('findAll')
             ->willReturn([1, 2, 3]);
 
         $return = $helper
-            ->eitherFindAll($repository->reveal())
+            ->eitherFindAll($repository)
             ->eval(
                 static fn (Throwable $i): Throwable => $i,
                 static fn (array $i): array => $i
@@ -81,12 +91,20 @@ final class MonadicRepositoryHelperTest extends TestCase
 
         self::assertEquals([1, 2, 3], $return);
 
+        $repository = $this
+            ->getMockBuilder(ObjectRepository::class)
+            ->getMock();
+
         $repository
-            ->findAll()
+            ->method('getClassName')
+            ->willReturn('EntityClass');
+
+        $repository
+            ->method('findAll')
             ->willReturn([]);
 
         $return = $helper
-            ->eitherFindAll($repository->reveal())
+            ->eitherFindAll($repository)
             ->eval(
                 static fn (Throwable $i): Throwable => $i,
                 static fn (array $i): array => $i
@@ -98,18 +116,20 @@ final class MonadicRepositoryHelperTest extends TestCase
     public function testEitherFindBy()
     {
         $helper = new MonadicServiceRepositoryHelper();
-        $repository = $this->prophesize(ObjectRepository::class);
+        $repository = $this
+            ->getMockBuilder(ObjectRepository::class)
+            ->getMock();
 
         $repository
-            ->getClassName()
+            ->method('getClassName')
             ->willReturn('EntityClass');
 
         $repository
-            ->findBy([], [], 1, 3)
+            ->method('findBy')
             ->willReturn([1, 2, 3]);
 
         $return = $helper
-            ->eitherFindBy($repository->reveal(), [], [], 1, 3)
+            ->eitherFindBy($repository, [], [], 1, 3)
             ->eval(
                 static fn (Throwable $i): Throwable => $i,
                 static fn (array $i): array => $i
@@ -117,12 +137,20 @@ final class MonadicRepositoryHelperTest extends TestCase
 
         self::assertEquals([1, 2, 3], $return);
 
+        $repository = $this
+            ->getMockBuilder(ObjectRepository::class)
+            ->getMock();
+
         $repository
-            ->findBy([], [], 1, 3)
+            ->method('getClassName')
+            ->willReturn('EntityClass');
+
+        $repository
+            ->method('findBy')
             ->willReturn([]);
 
         $return = $helper
-            ->eitherFindBy($repository->reveal(), [], [], 1, 3)
+            ->eitherFindBy($repository, [], [], 1, 3)
             ->eval(
                 static fn (Throwable $i): Throwable => $i,
                 static fn (array $i): array => $i
@@ -134,18 +162,20 @@ final class MonadicRepositoryHelperTest extends TestCase
     public function testEitherFindOneBy()
     {
         $helper = new MonadicServiceRepositoryHelper();
-        $repository = $this->prophesize(ObjectRepository::class);
+        $repository = $this
+            ->getMockBuilder(ObjectRepository::class)
+            ->getMock();
 
         $repository
-            ->getClassName()
+            ->method('getClassName')
             ->willReturn('EntityClass');
 
         $repository
-            ->findOneBy(['id' => 123])
+            ->method('findOneBy')
             ->willReturn(123);
 
         $return = $helper
-            ->eitherFindOneBy($repository->reveal(), ['id' => 123])
+            ->eitherFindOneBy($repository, ['id' => 123])
             ->eval(
                 static fn (Throwable $i): Throwable => $i,
                 static fn (int $i): int => $i
@@ -153,12 +183,20 @@ final class MonadicRepositoryHelperTest extends TestCase
 
         self::assertEquals(123, $return);
 
+        $repository = $this
+            ->getMockBuilder(ObjectRepository::class)
+            ->getMock();
+
         $repository
-            ->findOneBy(['id' => 'exception'])
+            ->method('getClassName')
+            ->willReturn('EntityClass');
+
+        $repository
+            ->method('findOneBy')
             ->willReturn(null);
 
         $return = $helper
-            ->eitherFindOneBy($repository->reveal(), ['id' => 'exception'])
+            ->eitherFindOneBy($repository, ['id' => 'exception'])
             ->eval(
                 static fn (Throwable $i): Throwable => $i,
                 static fn (array $i): array => $i
@@ -170,37 +208,38 @@ final class MonadicRepositoryHelperTest extends TestCase
     public function testUsage()
     {
         $helper = new MonadicServiceRepositoryHelper();
-        $repository = $this->prophesize(ObjectRepository::class);
-        $entity = $this->prophesize(CustomEntity::class);
+        $repository = $this
+            ->getMockBuilder(ObjectRepository::class)
+            ->getMock();
 
         $repository
-            ->getClassName()
+            ->method('getClassName')
             ->willReturn('EntityClass');
+
+        $entity = $this
+            ->getMockBuilder(CustomEntity::class)
+            ->getMock();
 
         // Testcase 1
         $entity
-            ->getTitle()
+            ->method('getTitle')
             ->willReturn('title');
 
         $repository
-            ->find(1)
-            ->willReturn($entity->reveal());
+            ->method('find')
+            ->willReturn($entity);
 
         $return = $helper
-            ->eitherFind($repository->reveal(), 1)
+            ->eitherFind($repository, 1)
             ->bind(
-                static function (CustomEntity $customEntity): Either {
-                    return (null === $customEntity->getTitle())
-                        ? Either::left(
-                            new Exception('Empty title')
-                        )
-                        : Either::right($customEntity);
-                }
+                static fn (CustomEntity $customEntity): Either => (null === $customEntity->getTitle())
+                    ? Either::left(
+                        new Exception('Empty title')
+                    )
+                    : Either::right($customEntity)
             )
             ->map(
-                static function (CustomEntity $customEntity): string {
-                    return sprintf('%s%s', $customEntity->getTitle(), $customEntity->getTitle());
-                }
+                static fn (CustomEntity $customEntity): string => sprintf('%s%s', $customEntity->getTitle(), $customEntity->getTitle())
             )
             ->eval(
                 static fn (Throwable $i): Throwable => $i,
@@ -210,25 +249,30 @@ final class MonadicRepositoryHelperTest extends TestCase
         self::assertEquals('titletitle', $return);
 
         // Testcase 2
+
+        $repository = $this
+            ->getMockBuilder(ObjectRepository::class)
+            ->getMock();
+
         $repository
-            ->find(2)
+            ->method('getClassName')
+            ->willReturn('EntityClass');
+
+        $repository
+            ->method('find')
             ->willReturn(null);
 
         $return = $helper
-            ->eitherFind($repository->reveal(), 2)
+            ->eitherFind($repository, 2)
             ->bind(
-                static function (CustomEntity $customEntity): Either {
-                    return (null === $customEntity->getTitle())
-                        ? Either::left(
-                            new Exception('Empty title')
-                        )
-                        : Either::right($customEntity);
-                }
+                static fn (CustomEntity $customEntity): Either => (null === $customEntity->getTitle())
+                    ? Either::left(
+                        new Exception('Empty title')
+                    )
+                    : Either::right($customEntity)
             )
             ->map(
-                static function (CustomEntity $customEntity): string {
-                    return sprintf('%s%s', $customEntity->getTitle(), $customEntity->getTitle());
-                }
+                static fn (CustomEntity $customEntity): string => sprintf('%s%s', $customEntity->getTitle(), $customEntity->getTitle())
             )
             ->eval(
                 static fn (Throwable $i): string => $i->getMessage(),
@@ -238,27 +282,35 @@ final class MonadicRepositoryHelperTest extends TestCase
         self::assertEquals('Unable to find an entity (EntityClass) with such ID (2).', $return);
 
         // Testcase 3
+        $repository = $this
+            ->getMockBuilder(ObjectRepository::class)
+            ->getMock();
+
+        $repository
+            ->method('getClassName')
+            ->willReturn('EntityClass');
+
+        $entity = $this
+            ->getMockBuilder(CustomEntity::class)
+            ->getMock();
+
         $entity
-            ->getTitle()
+            ->method('getTitle')
             ->willReturn('');
 
         $repository
-            ->find(3)
-            ->willReturn($entity->reveal());
+            ->method('find')
+            ->willReturn($entity);
 
         $return = $helper
-            ->eitherFind($repository->reveal(), 3)
+            ->eitherFind($repository, 3)
             ->bind(
-                static function (CustomEntity $customEntity): Either {
-                    return ('' === $customEntity->getTitle())
-                    ? Either::left(new Exception('Empty title'))
-                    : Either::right($customEntity);
-                }
+                static fn (CustomEntity $customEntity): Either => ('' === $customEntity->getTitle())
+                ? Either::left(new Exception('Empty title'))
+                : Either::right($customEntity)
             )
             ->map(
-                static function (CustomEntity $customEntity): string {
-                    return sprintf('%s%s', $customEntity->getTitle(), $customEntity->getTitle());
-                }
+                static fn (CustomEntity $customEntity): string => sprintf('%s%s', $customEntity->getTitle(), $customEntity->getTitle())
             )
             ->eval(
                 static fn (Throwable $i): string => $i->getMessage(),

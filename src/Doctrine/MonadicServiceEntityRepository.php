@@ -11,7 +11,6 @@ namespace loophp\RepositoryMonadicHelper\Doctrine;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use loophp\RepositoryMonadicHelper\Service\MonadicServiceRepositoryHelper;
-use loophp\RepositoryMonadicHelper\Service\MonadicServiceRepositoryHelperInterface;
 use Marcosh\LamPHPda\Either;
 use Throwable;
 
@@ -24,7 +23,7 @@ use Throwable;
  */
 class MonadicServiceEntityRepository extends ServiceEntityRepository implements MonadicServiceEntityRepositoryInterface
 {
-    public function eitherFind($id): Either
+    public function eitherFind(int|string $id): Either
     {
         return $this->getMonadicServiceRepositoryHelper()->eitherFind($this, $id);
     }
@@ -49,11 +48,11 @@ class MonadicServiceEntityRepository extends ServiceEntityRepository implements 
     }
 
     /**
-     * @return MonadicServiceRepositoryHelperInterface<Throwable, R>
+     * @return MonadicServiceRepositoryHelper<R>
      */
-    private function getMonadicServiceRepositoryHelper(): MonadicServiceRepositoryHelperInterface
+    private function getMonadicServiceRepositoryHelper(): MonadicServiceRepositoryHelper
     {
-        /** @var MonadicServiceRepositoryHelperInterface<Throwable, R> $monadicServiceRepositoryHelper */
+        /** @var MonadicServiceRepositoryHelper<R> $monadicServiceRepositoryHelper */
         $monadicServiceRepositoryHelper = new MonadicServiceRepositoryHelper();
 
         return $monadicServiceRepositoryHelper;

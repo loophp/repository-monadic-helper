@@ -26,29 +26,29 @@ final class MonadicRepository implements MonadicRepositoryInterface
     /**
      * @var MonadicServiceRepositoryHelperInterface<MonadicRepositoryExceptionInterface, R>
      */
-    private MonadicServiceRepositoryHelperInterface $monadicServiceRepositoryHelper;
+    private readonly MonadicServiceRepositoryHelperInterface $monadicServiceRepositoryHelper;
 
     /**
      * @var ObjectRepository<R>
      */
-    private ObjectRepository $objectRepository;
+    private readonly ObjectRepository $objectRepository;
 
     /**
      * @param class-string<R> $entityClass
      */
     public function __construct(
-        EntityManagerInterface $entityManager,
-        string $entityClass
+        readonly EntityManagerInterface $entityManager,
+        readonly string $entityClass
     ) {
         $this->objectRepository = $entityManager->getRepository($entityClass);
 
-        /** @var MonadicServiceRepositoryHelperInterface<MonadicRepositoryExceptionInterface, R> $monadicServiceRepositoryHelper */
+        /** @var MonadicServiceRepositoryHelper<R> $monadicServiceRepositoryHelper */
         $monadicServiceRepositoryHelper = new MonadicServiceRepositoryHelper();
 
         $this->monadicServiceRepositoryHelper = $monadicServiceRepositoryHelper;
     }
 
-    public function eitherFind($id): Either
+    public function eitherFind(int|string $id): Either
     {
         return $this
             ->monadicServiceRepositoryHelper

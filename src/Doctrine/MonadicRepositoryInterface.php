@@ -19,11 +19,9 @@ use Throwable;
 interface MonadicRepositoryInterface
 {
     /**
-     * @param int|string $id
-     *
      * @return Either<L, R>
      */
-    public function eitherFind($id): Either;
+    public function eitherFind(int|string $id): Either;
 
     /**
      * @return Either<L, array<R>>

@@ -19,7 +19,7 @@ class BareCustomEntityRepository implements ObjectRepository
 {
     public function find($id): ?CustomEntity
     {
-        if (mt_rand(0, 1)) {
+        if (random_int(0, 1)) {
             return null;
         }
 
@@ -36,7 +36,7 @@ class BareCustomEntityRepository implements ObjectRepository
 
     public function findBy(array $criteria, ?array $orderBy = null, ?int $limit = null, ?int $offset = null): array
     {
-        if (mt_rand(0, 1)) {
+        if (random_int(0, 1)) {
             return [];
         }
 
@@ -45,7 +45,7 @@ class BareCustomEntityRepository implements ObjectRepository
 
     public function findOneBy(array $criteria): ?CustomEntity
     {
-        if (mt_rand(0, 1)) {
+        if (random_int(0, 1)) {
             return null;
         }
 
