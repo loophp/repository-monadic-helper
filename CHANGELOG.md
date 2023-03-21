@@ -5,7 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.9](https://github.com/loophp/repository-monadic-helper/compare/1.0.8...1.0.9)
+## [1.1.0](https://github.com/loophp/repository-monadic-helper/compare/1.0.9...1.1.0)
+
+### Merged
+
+- chore(deps): update cachix/install-nix-action action to v20 [`#37`](https://github.com/loophp/repository-monadic-helper/pull/37)
+- build(deps): Bump cachix/install-nix-action from 18 to 19 [`#36`](https://github.com/loophp/repository-monadic-helper/pull/36)
+- chore(deps): update actions/stale action to v7 [`#29`](https://github.com/loophp/repository-monadic-helper/pull/29)
+
+### Commits
+
+- fix: badge link [`5ada9d2`](https://github.com/loophp/repository-monadic-helper/commit/5ada9d28ab112040290e76654068776664a05130)
+- refactor: upgrade codebase for PHP 8.1 [`7ec22d7`](https://github.com/loophp/repository-monadic-helper/commit/7ec22d7bba23f4fb023bc1bdf29daf374eb35d8b)
+
+## [1.0.9](https://github.com/loophp/repository-monadic-helper/compare/1.0.8...1.0.9) - 2022-11-16
 
 ### Merged
 
@@ -16,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- docs: Update changelog. [`f6f16a4`](https://github.com/loophp/repository-monadic-helper/commit/f6f16a48c509b275c4e75d7608586c38422417f8)
 - Update `composer.json`. [`7297b1c`](https://github.com/loophp/repository-monadic-helper/commit/7297b1cbec43a2cbcaeec8dda501586fa9c21548)
 - fix Nix environment [`157752a`](https://github.com/loophp/repository-monadic-helper/commit/157752a53e4d502dda5ceb91f538d2d009c44d7d)
 - feat: wrap repository methods around `try/catch`. [`91d7abd`](https://github.com/loophp/repository-monadic-helper/commit/91d7abdde27580478d29a983cbfc7544b36ed15e)
