@@ -291,7 +291,7 @@ For more detailed changelogs, please check [the release changelogs][45].
 [shepherd link]: https://shepherd.dev/github/loophp/repository-monadic-helper
 [github stars]: https://img.shields.io/github/stars/loophp/repository-monadic-helper.svg?style=flat-square
 [total downloads]: https://img.shields.io/packagist/dt/loophp/repository-monadic-helper.svg?style=flat-square
-[github workflow status]: https://img.shields.io/github/workflow/status/loophp/repository-monadic-helper/Unit%20tests?style=flat-square
+[github workflow status]: https://img.shields.io/github/actions/workflow/status/loophp/repository-monadic-helper/tests.yml?branch=main&style=flat-square
 [code quality]: https://img.shields.io/scrutinizer/quality/g/loophp/repository-monadic-helper/main.svg?style=flat-square
 [type coverage]: https://img.shields.io/badge/dynamic/json?style=flat-square&color=color&label=Type%20coverage&query=message&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Floophp%2Frepository-monadic-helper%2Fcoverage
 [license]: https://img.shields.io/packagist/l/loophp/repository-monadic-helper.svg?style=flat-square
