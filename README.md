@@ -2,7 +2,6 @@
 [![GitHub stars][github stars]][packagist link]
 [![Total Downloads][total downloads]][packagist link]
 [![GitHub Workflow Status][github workflow status]][github actions link]
-[![Scrutinizer code quality][code quality]][scrutinizer link]
 [![Type Coverage][type coverage]][shepherd link]
 [![License][license]][packagist link]
 [![Donate!][donate github]][github sponsors link]
@@ -287,12 +286,10 @@ For more detailed changelogs, please check [the release changelogs][45].
   https://img.shields.io/badge/Try%20it-online%20!-brightgreen?style=flat-square
 [packagist link]: https://packagist.org/packages/loophp/repository-monadic-helper
 [github actions link]: https://github.com/loophp/repository-monadic-helper/actions
-[scrutinizer link]: https://scrutinizer-ci.com/g/loophp/repository-monadic-helper/?branch=main
 [shepherd link]: https://shepherd.dev/github/loophp/repository-monadic-helper
 [github stars]: https://img.shields.io/github/stars/loophp/repository-monadic-helper.svg?style=flat-square
 [total downloads]: https://img.shields.io/packagist/dt/loophp/repository-monadic-helper.svg?style=flat-square
 [github workflow status]: https://img.shields.io/github/actions/workflow/status/loophp/repository-monadic-helper/tests.yml?branch=main&style=flat-square
-[code quality]: https://img.shields.io/scrutinizer/quality/g/loophp/repository-monadic-helper/main.svg?style=flat-square
 [type coverage]: https://img.shields.io/badge/dynamic/json?style=flat-square&color=color&label=Type%20coverage&query=message&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Floophp%2Frepository-monadic-helper%2Fcoverage
 [license]: https://img.shields.io/packagist/l/loophp/repository-monadic-helper.svg?style=flat-square
 [donate github]: https://img.shields.io/badge/Sponsor-Github-brightgreen.svg?style=flat-square
