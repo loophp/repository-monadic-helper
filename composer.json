@@ -19,7 +19,7 @@
     },
     "require-dev": {
         "doctrine/doctrine-bundle": "^2.6",
-        "doctrine/orm": "^2.12",
+        "doctrine/orm": "^2.12 || ^3.0",
         "drupol/php-conventions": "^5",
         "phpunit/phpunit": "^10"
     },
