@@ -20,7 +20,7 @@
     "require-dev": {
         "doctrine/doctrine-bundle": "^2.6",
         "doctrine/orm": "^2.12",
-        "drupol/php-conventions": "^5",
+        "drupol/php-conventions": "^6",
         "phpunit/phpunit": "^10"
     },
     "autoload": {
