@@ -21,7 +21,7 @@
         "doctrine/doctrine-bundle": "^2.6",
         "doctrine/orm": "^2.12 || ^3.0",
         "drupol/php-conventions": "^6",
-        "phpunit/phpunit": "^10"
+        "phpunit/phpunit": "^12"
     },
     "autoload": {
         "psr-4": {
