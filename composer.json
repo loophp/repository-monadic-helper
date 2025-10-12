@@ -18,7 +18,7 @@
         "marcosh/lamphpda": "^1 || ^2 || ^3"
     },
     "require-dev": {
-        "doctrine/doctrine-bundle": "^2.6",
+        "doctrine/doctrine-bundle": "^3.0",
         "doctrine/orm": "^2.12 || ^3.0",
         "drupol/php-conventions": "^6",
         "phpunit/phpunit": "^10"
